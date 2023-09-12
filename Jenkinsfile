@@ -1,4 +1,4 @@
-def registry = 'https://valaxy18.jfrog.io
+def registry = 'https://valaxy18.jfrog.io'
 pipeline {
     agent {
         node {
@@ -43,7 +43,7 @@ environment {
             }
         }
 
-         '
+         
          stage("Jar Publish") {
         steps {
             script {
@@ -68,8 +68,9 @@ environment {
             
             }
         }   
+    }
     }   
-
+}
 
 
 
