@@ -14,11 +14,11 @@ environment {
             }
         }
 
-        stage("test")
+        stage("test"){
             steps {
                 sh 'mvn surefire-report:report'
             }
-
+        }
         stage('SonarQube analysis') {
         environment {
          scannerHome = tool 'sonar-scanner';
