@@ -20,7 +20,7 @@ environment {
         stage("test"){
             steps {
                 sh 'mvn surefire-report:report'
-            }
+             }
         }
        /* 
         stage('SonarQube analysis') {
