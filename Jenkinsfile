@@ -100,7 +100,7 @@ environment {
     stage ("deploy") {
         steps {
             script {
-                sh './deploy.sh'
+                sh 'home/ubuntu/kubernetes/deploy.sh'
              }
         }
     }
