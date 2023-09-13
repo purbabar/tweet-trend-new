@@ -7,6 +7,11 @@ pipeline {
             label 'maven'
         }
     }
+
+parameters {
+        booleanParam(name: 'skip_test', defaultValue: false, description: 'Set to true to skip the test stage')
+    } 
+
 environment {
     PATH = "/opt/apache-maven-3.9.4/bin:$PATH"
 }
@@ -27,6 +32,7 @@ environment {
          scannerHome = tool 'sonar-scanner';
         }
         steps {
+        execute_stage('SonarQube analysis', params.skip_test)
         withSonarQubeEnv('sonarqube-server') { // If you have configured more than one global server connection, you can specify its name
         sh "${scannerHome}/bin/sonar-scanner"
         }
@@ -34,6 +40,7 @@ environment {
     }
     stage("Quality Gate"){
         steps {
+        execute_stage('SonarQube analysis', params.skip_test)
         script {
             timeout(time: 1, unit: 'HOURS') { // Just in case something goes wrong, pipeline will be killed after a timeout
             def qg = waitForQualityGate() // Reuse taskId previously collected by withSonarQubeEnv
