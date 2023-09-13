@@ -99,7 +99,7 @@ environment {
         steps {
             script {
                 sh './deploy.sh'
-            }
+             }
         }
     }
 
