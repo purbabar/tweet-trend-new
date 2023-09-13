@@ -100,7 +100,6 @@ environment {
     stage ("deploy") {
         steps {
             script {
-                sh 'pwd'
                 sh '/home/ubuntu/kubernetes/deploy.sh'
              }
         }
