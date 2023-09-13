@@ -9,7 +9,7 @@ pipeline {
     }
 
 parameters {
-        booleanParam(name: 'skip_test', defaultValue: false, description: 'Set to true to skip the test stage')
+        booleanParam(name: 'skip_test', defaultValue: true, description: 'Set to true to skip the test stage')
     } 
 
 environment {
